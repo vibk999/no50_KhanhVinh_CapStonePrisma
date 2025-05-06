@@ -5,8 +5,7 @@ export const getAllImages = async () => prisma.hinh_anh.findMany();
 export const searchImagesByName = async (name) =>
   prisma.hinh_anh.findMany({
     where: {
-      ten_hinh: { contains: name, mode: "insensitive" },
-      isDeleted: false,
+      ten_hinh: { contains: name },
     },
   });
 

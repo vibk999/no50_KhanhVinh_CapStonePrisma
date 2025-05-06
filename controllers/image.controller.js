@@ -17,12 +17,9 @@ export const fetchAllImages = async (req, res) => {
 };
 export const searchImages = async (req, res) => {
   const { name } = req.query;
-  try {
-    const images = await searchImagesByName(name);
-    res.json(images);
-  } catch (err) {
-    res.status(500).json({ error: "Internal server error" });
-  }
+
+  const images = await searchImagesByName(name);
+  res.json(images);
 };
 export const fetchComments = async (req, res) => {
   const { id } = req.params;
