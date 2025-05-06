@@ -11,6 +11,7 @@ import {
   fetchUserImages,
   fetchSavedImages,
 } from "../controllers/image.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
@@ -18,11 +19,13 @@ router.get("/", fetchAllImages);
 router.get("/search", searchImages);
 router.get("/:id", fetchImageDetails);
 router.get("/:id/comments", fetchComments);
-router.get("/check/save", checkSaved);
-router.post("/comment", postComment);
-router.post("/", createImage);
-router.delete("/:id", removeImage);
-router.get("/user/:userId", fetchUserImages);
-router.get("/user/:userId/saved", fetchSavedImages);
+
+router.get("/user/images", verifyToken, fetchUserImages);
+router.get("/user/saved", verifyToken, fetchSavedImages);
+router.get("/check/save", verifyToken, checkSaved);
+
+router.post("/comment", verifyToken, postComment);
+router.post("/", verifyToken, createImage);
+router.delete("/:id", verifyToken, removeImage);
 
 export default router;

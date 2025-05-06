@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "081861cb-9b61-460c-ae94-d9fc32f28e1f",
+		"name": "Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16209706",
+		"_collection_link": "https://www.postman.com/security-geologist-94927015/workspace/vinh/collection/16209706-081861cb-9b61-460c-ae94-d9fc32f28e1f?action=share&source=collection_link&creator=16209706"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"newuser@example.com\",\r\n  \"mat_khau\": \"123456\",\r\n  \"ho_ten\": \"New User\",\r\n  \"tuoi\": 28,\r\n  \"anh_dai_dien\": \"avatar.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/auth/register",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"newuser@example.com\",\r\n  \"mat_khau\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/auth/login",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get infor user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/users",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ho_ten\": \"Vinh\",\r\n  \"email\": \"vinh@gmail.com\",\r\n  \"mat_khau\": \"123456\",\r\n  \"tuoi\": 25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/users",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all image",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/images",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/images/search?name=anh1",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "anh1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search chi tiet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/images/1",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get coment của ảnh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/images/1/comments",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "detele img",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/images/7",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check pic saved",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/images/check/save?imageId=1",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"check",
+						"save"
+					],
+					"query": [
+						{
+							"key": "imageId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"imageId\": 2,\r\n  \"noi_dung\": \"Bức ảnh này xấu quắc!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/images/comment",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post new pic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ten_hinh\": \"anh_dep.jpg\",\r\n  \"duong_dan\": \"/uploads/anh_dep.jpg\",\r\n  \"mo_ta\": \"Ảnh chụp hoàng hôn\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}api/images/",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get save pic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}api/images/user/saved",
+					"host": [
+						"{{domain}}api"
+					],
+					"path": [
+						"images",
+						"user",
+						"saved"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
